@@ -22,7 +22,7 @@ public class HybridEngine implements Engine {
         if (speed<=50)  selectedEngine = electricEngine;
         else selectedEngine=gasEngine;
 
-        //make sure the car started
+        //make sure the Car started
         if (operatingEngine==null){
             operatingEngine=selectedEngine;
             operatingEngine.start();

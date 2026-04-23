@@ -1,5 +1,5 @@
 public interface Engine {
     void start();
-    void end();
+    void stop();
     void setSpeed(int speed);
 }

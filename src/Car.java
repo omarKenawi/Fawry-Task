@@ -1,9 +1,9 @@
-public class car {
+public class Car {
     private static final int MAX_SPEED = 200;
     private int speed = 0;
     private Engine engine;
 
-    public car(Engine engine) {
+    public Car(Engine engine) {
         this.engine = engine;
     }
 
@@ -20,16 +20,19 @@ public class car {
     }
 
     public void accelerate() {
-        if (this.speed < MAX_SPEED) {
-            this.speed = Math.min(MAX_SPEED, this.speed + 20);
-            engine.setSpeed(speed);
+        if (speed < MAX_SPEED) {
+            speed = Math.min(MAX_SPEED, speed + 20);
+            engine.setInternalSpeed(speed);
         }
     }
 
     public void brake() {
-        if (this.speed > 0) {
-            this.speed = Math.max(0, this.speed - 20);
-            engine.setSpeed(speed);
+        if (speed > 0) {
+            speed = Math.max(0, speed - 20);
+            engine.setInternalSpeed(speed);
         }
+    }
+    public int getSpeed(){
+        return speed;
     }
 }

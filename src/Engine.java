@@ -5,17 +5,17 @@ public abstract class Engine {
 
     abstract void stop();
 
-    int getInternalSpeed() {
+    protected int getInternalSpeed() {
         return internalSpeed;
     }
 
     abstract void setInternalSpeed(int speed);
 
-    void increase() {
+    protected void increase() {
         internalSpeed++;
     }
 
-    public void decrease() {
+    protected void decrease() {
         if (internalSpeed > 0)
             internalSpeed--;
     }

@@ -8,4 +8,9 @@ public class EngineFactory {
             return new HybridEngine();
         else throw new IllegalArgumentException();
     }
+    public static void replaceEngine(Car car, EngineType type) {
+        System.out.println("Replacing engine");
+        car.setEngine(createEngine(type));
+        System.out.println("Engine replaced new engine type "+type.toString());
+    }
 }

@@ -1,4 +1,4 @@
-public class ElectricEngine implements Engine {
+public class ElectricEngine extends Engine {
 
     @Override
     public void start() {
@@ -7,12 +7,22 @@ public class ElectricEngine implements Engine {
 
     @Override
     public void stop() {
+        this.setInternalSpeed(0);
         System.out.println("Electric Engine stopped");
     }
 
     @Override
-    public void setSpeed(int speed) {
-        System.out.println("Electric Engine current speed " + speed);
+    public void setInternalSpeed(int speed) {
+        while (this.getInternalSpeed() < speed) {
+            this.increase();
+            System.out.println("Electric Engine current speed " + this.getInternalSpeed());
+        }
+        while (this.getInternalSpeed() > speed) {
+            this.decrease();
+            System.out.println("Electric Engine current speed " + this.getInternalSpeed());
+        }
+
+
     }
 
 }

@@ -1,6 +1,6 @@
 public class HybridEngine extends Engine {
     private final GasEngine gasEngine = new GasEngine();
-    private final   ElectricEngine electricEngine = new ElectricEngine();
+    private final ElectricEngine electricEngine = new ElectricEngine();
     private Engine operatingEngine;
 
 
@@ -13,26 +13,27 @@ public class HybridEngine extends Engine {
 
     @Override
     public void stop() {
-        operatingEngine.stop();
+        if (operatingEngine != null)
+            operatingEngine.stop();
     }
 
 
     @Override
     public void setInternalSpeed(int speed) {
         Engine selectedEngine;
-        if (speed<=50)  selectedEngine = electricEngine;
-        else selectedEngine=gasEngine;
+        if (speed <= 50) selectedEngine = electricEngine;
+        else selectedEngine = gasEngine;
 
         //make sure the Car started
-        if (operatingEngine==null){
-            operatingEngine=selectedEngine;
+        if (operatingEngine == null) {
+            operatingEngine = selectedEngine;
             operatingEngine.start();
         }
         //change engines if needed
-        if(selectedEngine!=operatingEngine){
+        if (selectedEngine != operatingEngine) {
             operatingEngine.stop();
             selectedEngine.start();
-            operatingEngine=selectedEngine;
+            operatingEngine = selectedEngine;
         }
         operatingEngine.setInternalSpeed(speed);
     }

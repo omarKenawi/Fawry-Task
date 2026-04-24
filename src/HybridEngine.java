@@ -1,4 +1,4 @@
-public class HybridEngine implements Engine {
+public class HybridEngine extends Engine {
     private final GasEngine gasEngine = new GasEngine();
     private final   ElectricEngine electricEngine = new ElectricEngine();
     private Engine operatingEngine;
@@ -16,8 +16,9 @@ public class HybridEngine implements Engine {
         operatingEngine.stop();
     }
 
+
     @Override
-    public void setSpeed(int speed) {
+    public void setInternalSpeed(int speed) {
         Engine selectedEngine;
         if (speed<=50)  selectedEngine = electricEngine;
         else selectedEngine=gasEngine;
@@ -33,7 +34,7 @@ public class HybridEngine implements Engine {
             selectedEngine.start();
             operatingEngine=selectedEngine;
         }
-        operatingEngine.setSpeed(speed);
+        operatingEngine.setInternalSpeed(speed);
     }
 
 }

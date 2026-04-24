@@ -16,6 +16,10 @@ public class Car {
     }
 
     public void stop() {
+        if(speed!=0){
+            System.out.println("Cannot stop the car. Current speed: " + speed);
+            return;
+        }
         engine.stop();
     }
 
